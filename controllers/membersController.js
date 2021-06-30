@@ -9,17 +9,12 @@ const getMembersList = asyncHandler(async (req, res) => {
 // @desc Add new member
 // @route POST /members/create-member
 // @access Public
-const addNewMember = asyncHandler(async(req, res) => {
-  const {
-    name,
-    email,
-    address,
-    gender
-  } = req.body;
+const addNewMember = asyncHandler(async (req, res) => {
+  const { name, email, address, gender } = req.body;
 
-  const memberExits = await Member.findOne({ email });
+  const memberExists = await Member.findOne({ email });
 
-  if (memberExits) {
+  if (memberExists) {
     res.status(400);
     throw new Error("Member already exists");
   }
@@ -28,7 +23,7 @@ const addNewMember = asyncHandler(async(req, res) => {
     name,
     email,
     address,
-    gender
+    gender,
   });
 
   res.json(member);
@@ -37,7 +32,7 @@ const addNewMember = asyncHandler(async(req, res) => {
 // @desc Get a member
 // @route GET /members/member/:id
 // @access Public
-const getSingleMember = asyncHandler(async(req, res) => {
+const getSingleMember = asyncHandler(async (req, res) => {
   const id = req.params.id;
   const member = await Member.findById(id);
 
@@ -47,9 +42,9 @@ const getSingleMember = asyncHandler(async(req, res) => {
 // @desc Update a member
 // @route UPDATE /members/member/:id
 // @access Public
-const updateMember = asyncHandler(async(req, res) => {
+const updateMember = asyncHandler(async (req, res) => {
   const id = req.params.id;
-  const updatedMember = await Member.findByIdAndUpdate(id,{$set: req.body});
+  const updatedMember = await Member.findByIdAndUpdate(id, { $set: req.body });
 
   res.json(updatedMember);
 });
@@ -57,12 +52,12 @@ const updateMember = asyncHandler(async(req, res) => {
 // @desc Delete a member
 // @route DELETE /members/member/:id
 // @access Public
-const deleteMember = asyncHandler(async(req, res) => {
+const deleteMember = asyncHandler(async (req, res) => {
   const id = req.params.id;
   await Member.findByIdAndDelete(id);
 
   res.status(200).json({
-    message: 'Member deleted successfully'
+    message: "Member deleted successfully",
   });
 });
 
