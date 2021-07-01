@@ -1,7 +1,7 @@
-const jwt = require("jsonwebtoken");
+import jwt from "jsonwebtoken";
 const asyncHandler = require("express-async-handler");
 
-const protect = asyncHandler(async (req, res, next) => {
+const protect = asyncHandler(async (req: any, res: any, next: any) => {
   let token;
 
   if (
@@ -29,7 +29,7 @@ const protect = asyncHandler(async (req, res, next) => {
   }
 });
 
-const admin = (req, res, next) => {
+const admin = (req: any, res: any, next: any) => {
   if (req.user && req.user.isAdmin) {
     next();
   } else {

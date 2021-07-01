@@ -5,16 +5,12 @@ const {
   addNewMember,
   getSingleMember,
   updateMember,
-  deleteMember
-} = require('../controllers/membersController.js');
+  deleteMember,
+} = require("../controllers/membersController");
 
-router
-  .route("/")
-  .get(getMembersList);
+router.route("/").get(getMembersList);
 
-router
-  .route("/create-member")
-  .post(addNewMember);
+router.route("/create-member").post(addNewMember);
 
 router
   .route("/member/:id")

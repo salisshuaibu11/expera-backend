@@ -7,7 +7,7 @@ const {
   updateAdmin,
   getSingleAdmin,
   deleteAdmin,
-} = require("../controllers/AdminController.js");
+} = require("../controllers/AdminController");
 
 router.route("/").get(getAllAdmins);
 router.route("/create-admin").post(addNewAdmin);

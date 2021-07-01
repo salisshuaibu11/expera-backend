@@ -1,9 +1,9 @@
-const express = require("express");
-const cors = require("cors");
-const bodyParser = require("body-parser");
-const app = express();
+import express from "express";
+import cors from "cors";
+import bodyParser from "body-parser";
+const app: express.Application = express();
 const { notFound, errorHandler } = require("./middleware/errorMiddleware");
-const connectDB = require("./database/db.js");
+const connectDB = require("./database/db");
 
 // Connecting mongoDB Database
 connectDB();
@@ -23,7 +23,7 @@ app.use(notFound);
 app.use(errorHandler);
 
 // PORT
-const port = process.env.PORT || 3000;
+const port: any = process.env.PORT || 3000;
 app.listen(port, () => {
   console.log("Connected to port " + port);
 });
