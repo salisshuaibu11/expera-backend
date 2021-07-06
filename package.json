@@ -1,34 +1,41 @@
 {
-  "name": "expera-backend",
+  "name": "express-typescript",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon --exec ts-node server.ts",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "ts-node ./src/server.ts"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/salisshuaibu11/expera-backend.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/salisshuaibu11/expera-backend/issues"
+  },
+  "homepage": "https://github.com/salisshuaibu11/expera-backend#readme",
   "dependencies": {
-    "bcryptjs": "^2.4.3",
+    "bcrypt": "^5.0.1",
     "body-parser": "^1.19.0",
-    "cors": "^2.8.5",
+    "class-transformer": "^0.4.0",
+    "class-validator": "^0.13.1",
+    "cookie-parser": "^1.4.5",
+    "dotenv": "^10.0.0",
     "express": "^4.17.1",
     "express-async-handler": "^1.1.4",
     "jsonwebtoken": "^8.5.1",
-    "mongoose": "^5.12.15"
-  },
-  "devDependencies": {
-    "@types/bcryptjs": "^2.4.2",
-    "@types/body-parser": "^1.19.0",
-    "@types/cors": "^2.8.10",
-    "@types/dotenv": "^8.2.0",
-    "@types/express": "^4.17.12",
-    "@types/jsonwebtoken": "^8.5.3",
-    "@types/mongoose": "^5.11.97",
-    "nodemon": "^2.0.9",
+    "mongoose": "^5.12.15",
     "ts-node": "^10.0.0",
     "typescript": "^4.3.5"
+  },
+  "devDependencies": {
+    "@types/bcrypt": "^5.0.0",
+    "@types/cookie-parser": "^1.4.2",
+    "@types/jsonwebtoken": "^8.5.3",
+    "envalid": "^7.1.0",
+    "nodemon": "^2.0.9"
   }
 }
